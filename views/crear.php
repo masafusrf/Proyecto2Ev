@@ -1,6 +1,28 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añade la entidad estelar</title>
+</head>
+<body>
 
+    <h1>Añade la nueva entidad estelar</h1>
 
+    <form action="index.php?accion=crear" method="post">
 
+        <label for="nombre">Nombre</label><br>
+        <input type="text" name="nombre" id="nombre" required><br>
 
-?>
+        <label for="origen">Planeta de origen</label><br>
+        <input type="text" name="origen" id="origen" required><br>
+
+        <label for="estabilidad">Nivel de estabilidad</label><br>
+        <input type="number" name="estabilidad" id="estabilidad" required><br>
+
+        <input type="submit" value="Guardar">
+
+    </form>
+    
+</body>
+</html>

@@ -6,7 +6,7 @@
 
         public function obtenerTodos();
 
-        public function eliminar($id)
+        public function eliminar($id);
     }
 
 ?>
