@@ -26,11 +26,11 @@
                     $antiguedad=$_POST['antiguedad'];
 
                     $entidad= new ArtefactoAntiguo(
-                        $id;
-                        $nombre;
-                        $planetaOrigen;
-                        $estabilidad;
-                        $antiguedad;
+                        $id,
+                        $nombre,
+                        $planetaOrigen,
+                        $estabilidad,
+                        $antiguedad,
                     );
 
                 } elseif ($tipo==='mineral') {
@@ -38,11 +38,11 @@
                     $dureza=$_POST['dureza'];
 
                     $entidad= new MineralRaro(
-                        $id;
-                        $nombre;
-                        $planetaOrigen;
-                        $estabilidad;
-                        $dureza;
+                        $id,
+                        $nombre,
+                        $planetaOrigen,
+                        $estabilidad,
+                        $dureza,
                     );
 
                 } elseif ($tipo==='vida') {
@@ -50,11 +50,11 @@
                     $dieta= $_POST['dieta'];
 
                     $entidad= new FormadeVida(
-                        $id;
-                        $nombre;
-                        $planetaOrigen;
-                        $estabilidad;
-                        $dieta;
+                        $id,
+                        $nombre,
+                        $planetaOrigen,
+                        $estabilidad,
+                        $dieta,
                     );
                 } else {
                     echo "Tipo de entidad estelar no válida.";
@@ -65,6 +65,49 @@
 
                 header("Location: index.php");
                 exit;
+            }
+        }
+
+        public function editar(){
+            $id= $_GET['id'] ?? null;
+            $entidad=$this->gestor->buscar($id);
+
+            if (!$entidad) {
+                echo "Esta entidad estelar no existe";
+                exit;
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] ==='POST') {
+                $nombre= $_POST['nombre'] ?? $entidad->getNombre();
+                $planetaOrigen=$_POST['planetaOrigen'] ?? $entidad->getPlaneta();
+                $estabilidad=$_POST['estabilidad'] ?? $entidad->getEstabilidad();
+
+                $entidad->setNombre($nombre);
+                $entidad->setPlaneta($planetaOrigen);
+                $entidad->setEstabilidad($estabilidad);
+
+                if ($entidad instanceof ArtefactoAntiguo) {
+                    $antiguedad=$_POST['antiguedad'] ?? $entidad->getAntiguedad();
+                    $entidad->setAntiguedad($antiguedad);
+                } elseif ($entidad instanceof MineralRaro) {
+                    $dureza=$_POST['dureza'] ?? $entidad->getDureza();
+                    $entidad->setDureza($dureza);
+                } elseif ($entidad instanceof FormadeVida) {
+                    $dieta=$_POST['dieta'] ?? $entidad->getDieta();
+                    $entidad->setDieta($dieta);
+                }
+
+                $this->gestor->editar($entidad);
+                header("Location: index.php");
+                exit;
+            }
+
+            if ($entidad instanceof ArtefactoAntiguo) {
+                include "views/editarArtefacto.php";
+            } elseif ($entidad instanceof MineralRaro) {
+                include "views/editarMineral.php";
+            } elseif ($entidad instanceof FormadeVida) {
+                include "views/editarVida.php";
             }
         }
 

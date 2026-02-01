@@ -1,6 +1,52 @@
-<?php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Criaturas</title>
+</head>
+<body>
 
+<h1>Listado de Entidades estelares</h1>
 
+<a href="index.php?accion=crear">Añadir entidad estelar</a>
 
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Especie</th>
+        <th>Planeta de origen</th>
+        <th>Estabilidad</th>
+        <th>Antiguedad</th>
+        <th>Dureza</th>
+        <th>Dieta</th>
+        <th>Acciones</th>
+    </tr>
 
-?>
+    <?php if(!empty($entidades)): ?>
+        <?php foreach ($entidades as $e): ?>
+        <tr>
+            <td><?= $e->getId() ?></td>
+            <td><?= $e->getNombre() ?></td>
+            <td><?= $e->getOrigen() ?></td>
+            <td><?= $e->getEstabilidad() ?></td>
+            <td><?= $e->getAntiguedad() ?></td>
+            <td><?= ($e instanceof ArtefactoAntiguo) ? $e->getAntiguedad() : 'X' ?></td>
+            <td><?= ($e instanceof MineralRaro) ? $e->getDureza() : 'X' ?></td>
+            <td><?= ($e instanceof FormadeVida) ? $e->getDieta() : 'X' ?></td>
+            <td>
+                <a href="index.php?accion=editar&id=<?= $e->getId() ?>">Editar</a>
+                <a href="index.php?accion=eliminar&id=<?= $e->getId() ?>">Eliminar</a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr>
+            <td colspan="8">No hay ninguna entidad estelar todavía.</td>
+        </tr>
+    <?php endif; ?>
+</table>
+
+</body>
+</html>
