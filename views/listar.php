@@ -9,15 +9,17 @@
 
 <h1>Listado de Entidades estelares</h1>
 
-<a href="index.php?accion=crear">Añadir entidad estelar</a>
+<a href="index.php?accion=crear&tipo=vida">Añadir forma de vida</a>
+<a href="index.php?accion=crear&tipo=mineral">Añadir mineral raro</a>
+<a href="index.php?accion=crear&tipo=artefacto">Añadir artefacto antiguo</a>
 
 <table border="1" cellpadding="10">
     <tr>
         <th>ID</th>
         <th>Nombre</th>
-        <th>Especie</th>
         <th>Planeta de origen</th>
         <th>Estabilidad</th>
+
         <th>Antiguedad</th>
         <th>Dureza</th>
         <th>Dieta</th>
@@ -29,9 +31,9 @@
         <tr>
             <td><?= $e->getId() ?></td>
             <td><?= $e->getNombre() ?></td>
-            <td><?= $e->getOrigen() ?></td>
+            <td><?= $e->getPlaneta() ?></td>
             <td><?= $e->getEstabilidad() ?></td>
-            <td><?= $e->getAntiguedad() ?></td>
+
             <td><?= ($e instanceof ArtefactoAntiguo) ? $e->getAntiguedad() : 'X' ?></td>
             <td><?= ($e instanceof MineralRaro) ? $e->getDureza() : 'X' ?></td>
             <td><?= ($e instanceof FormadeVida) ? $e->getDieta() : 'X' ?></td>

@@ -34,7 +34,7 @@
         }
 
         public function getEstabilidad(){
-            return $this->estabilidad=$estabilidad;
+            return $this->estabilidad;
         }
 
         public function setEstabilidad($estabilidad){

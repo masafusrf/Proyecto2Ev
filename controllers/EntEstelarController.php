@@ -17,7 +17,7 @@
             if ($_SERVER['REQUEST_METHOD']=== 'POST') {
                 $id=uniqid();
                 $nombre= $_POST['nombre'];
-                $planetaOrigen = $_POST['planetaOrigen'];
+                $planetaOrigen = $_POST['origen'];
                 $estabilidad=$_POST['estabilidad'];
                 $tipo=$_POST['tipo'];
 
@@ -65,6 +65,17 @@
 
                 header("Location: index.php");
                 exit;
+            }
+            
+            $tipo = $_GET['tipo'] ?? null;
+            if ($tipo === 'artefacto') {
+                include "views/crearArtefacto.php";
+            } elseif ($tipo === 'mineral') {
+                include "views/crearMineral.php";
+            } elseif ($tipo === 'vida') {
+                include "views/crearVida.php";
+            } else {
+                echo "Tipo de entidad estelar no válida.";
             }
         }
 
