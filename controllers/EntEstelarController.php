@@ -9,7 +9,16 @@
         }
 
         public function index(){
-            $entidades= $this->gestor->obtenerTodos();
+            $elementosPorPag = 5;
+            $paginaActual= isset($_GET['p'] ? $_GET['p'] : 1);
+
+            $listaTotal=$this->gestor->obtenerTodos();
+            $totalElmtos=count($listaTotal);
+            $totalPags= ceil($totalElmtos/$elementosPorPag);
+
+            $primerElmto=($paginaActual-1) * $elementosPorPag;
+            $entidades= array_slice($listaTotal, $primerElmto, $elementosPorPag);
+
             include "views/listar.php";
         }
 

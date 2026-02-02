@@ -50,5 +50,19 @@
     <?php endif; ?>
 </table>
 
+<?php if ($totalPags > 1): ?>
+    <div>
+        <p>Páginas:</p>
+        <?php for($i = 1; $i <= $totalPags; $i++): ?>
+            <?php if ($i == $paginaActual): ?>
+                <strong><?= $i ?></strong>
+            <?php else: ?>
+                <a href="index.php?accion=index&p=<?= $i ?>"><?= $i ?></a>
+            <?php endif; ?>
+        <?php endfor; ?>
+    </div>
+<?php endif; ?>
+
+
 </body>
 </html>
