@@ -28,6 +28,11 @@
                 $nombre= $_POST['nombre'];
                 $planetaOrigen = $_POST['origen'];
                 $estabilidad=$_POST['estabilidad'];
+                if ($estabilidad < 1 || $estabilidad > 10) {
+                    echo "La estabilidad debe estar entre 1 y 10 <br>";
+                    echo "<button onclick='history.back()'>Volver</button>";
+                    exit;
+                }
                 $tipo=$_POST['tipo'];
 
                 if ($tipo === 'artefacto') {
@@ -45,6 +50,11 @@
                 } elseif ($tipo==='mineral') {
                     
                     $dureza=$_POST['dureza'];
+                    if ($dureza < 1 || $dureza > 10) {
+                    echo "La dureza debe estar entre 1 y 10 <br>";
+                    echo "<button onclick='history.back()'>Volver</button>";
+                    exit;
+                }
 
                     $entidad= new MineralRaro(
                         $id,
