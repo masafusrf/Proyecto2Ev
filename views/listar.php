@@ -32,7 +32,9 @@
             <td><?= $e->getId() ?></td>
             <td><?= $e->getNombre() ?></td>
             <td><?= $e->getPlaneta() ?></td>
-            <td><?= $e->getEstabilidad() ?></td>
+            <td style="<?= ($e->getEstabilidad() < 3) ? 'background-color: red; color: white;' : '' ?>">
+                <?= $e->getEstabilidad() ?>
+            </td>
 
             <td><?= ($e instanceof ArtefactoAntiguo) ? $e->getAntiguedad() : 'X' ?></td>
             <td><?= ($e instanceof MineralRaro) ? $e->getDureza() : 'X' ?></td>
