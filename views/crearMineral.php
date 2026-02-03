@@ -19,10 +19,10 @@
         <input type="text" name="origen" id="origen" required><br>
 
         <label for="estabilidad">Nivel de estabilidad</label><br>
-        <input type="number" name="estabilidad" id="estabilidad" required><br>
+        <input type="number" min="1" max="10" name="estabilidad" id="estabilidad" required><br>
 
         <label for="dureza">Dureza</label><br>
-        <input type="number" name="dureza" id="dureza" required><br>
+        <input type="number" min="1" max="10" name="dureza" id="dureza" required><br>
 
         <input type="submit" value="Guardar">
 

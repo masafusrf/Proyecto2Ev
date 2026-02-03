@@ -19,7 +19,7 @@
         <input type="text" name="origen" id="origen" required><br>
 
         <label for="estabilidad">Nivel de estabilidad</label><br>
-        <input type="number" name="estabilidad" id="estabilidad" required><br>
+        <input type="number" name="estabilidad" min="1" max="10" id="estabilidad" required><br>
 
         <label for="antiguedad">Antigüedad (años luz)</label><br>
         <input type="number" name="antiguedad" id="antiguedad" required><br>

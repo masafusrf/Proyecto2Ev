@@ -28,7 +28,7 @@
         <th>Planeta de origen</th>
         <th>Estabilidad</th>
 
-        <th>Antiguedad</th>
+        <th>Antigüedad</th>
         <th>Dureza</th>
         <th>Dieta</th>
         <th>Acciones</th>
