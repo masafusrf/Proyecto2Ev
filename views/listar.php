@@ -7,6 +7,14 @@
 </head>
 <body>
 
+
+<?php if (!empty($_SESSION['mensaje'])): ?>
+    <p style="background:#eef;padding:10px;">
+        <?= $_SESSION['mensaje'] ?>
+    </p>
+    <?php unset($_SESSION['mensaje']); ?>
+<?php endif; ?>
+
 <h1>Listado de Entidades estelares</h1>
 
 <a href="index.php?accion=crear&tipo=vida">Añadir forma de vida</a>

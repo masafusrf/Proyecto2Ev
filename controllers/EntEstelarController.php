@@ -72,6 +72,8 @@
 
                 $this->gestor->guardar($entidad);
 
+                $_SESSION['mensaje'] = $entidad->reaccionar();
+
                 header("Location: index.php");
                 exit;
             }
