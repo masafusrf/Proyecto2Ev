@@ -99,7 +99,7 @@
 
             if ($_SERVER['REQUEST_METHOD'] ==='POST') {
                 $nombre= $_POST['nombre'] ?? $entidad->getNombre();
-                $planetaOrigen=$_POST['planetaOrigen'] ?? $entidad->getPlaneta();
+                $planetaOrigen=$_POST['origen'] ?? $entidad->getPlaneta();
                 $estabilidad=$_POST['estabilidad'] ?? $entidad->getEstabilidad();
 
                 $entidad->setNombre($nombre);
