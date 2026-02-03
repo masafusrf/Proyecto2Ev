@@ -10,7 +10,7 @@
 
         public function index(){
             $elementosPorPag = 5;
-            $paginaActual= isset($_GET['p'] ? $_GET['p'] : 1);
+            $paginaActual= isset($_GET['p']) ? $_GET['p'] : 1;
 
             $listaTotal=$this->gestor->obtenerTodos();
             $totalElmtos=count($listaTotal);
