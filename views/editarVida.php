@@ -11,7 +11,6 @@
 
         <tr>
             <td>
-                <!-- Botón Editar -->
                 <form method="POST" action="index.php?accion=editar&id=<?= $entidad->getId() ?>">
                     <input type="hidden" name="id" value="<?= $entidad->getId() ?>">
 

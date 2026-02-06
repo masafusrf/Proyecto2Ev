@@ -25,7 +25,6 @@
         <input type="number" min="1" max="10" name="dureza" id="dureza" required><br>
 
         <input type="submit" value="Guardar">
-
     </form>
     
 </body>

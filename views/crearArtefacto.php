@@ -25,7 +25,6 @@
         <input type="number" name="antiguedad" id="antiguedad" required><br>
 
         <input type="submit" value="Guardar">
-
     </form>
     
 </body>
